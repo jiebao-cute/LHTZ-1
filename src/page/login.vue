@@ -3,8 +3,8 @@
 		<transition name="form-fade" mode="in-out">
 			<section class="form_contianer">
 				<div class='titleArea rflex'>
-					<img class="logo" :src="logo" alt="小爱admin">
-					<span class='title'>小爱<i>Admin</i></span>
+					<img class="logo" :src="logo" alt="量化投资">
+					<span class='title'>量化投资<i>admin</i></span>
 				</div>
 				<el-form :model="loginForm" :rules="rules" ref="loginForm" class="loginForm">
 					<el-form-item prop="username" class="login-item">
@@ -21,7 +21,6 @@
 						<el-button type="primary" @click="submitForm('loginForm')" class="submit_btn">SIGN IN</el-button>
 					</el-form-item>
 					<div class="tiparea">
-						<p class="wxtip">温馨提示：</p>
 						<p class="tip">用户名为：admin/editor<span>(可用于切换权限)</span></p>
 						<p class="tip">密码为：123456</p>
 					</div>
@@ -102,7 +101,8 @@ export default {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: url(../assets/img/bg9.jpg) no-repeat center center;
+	//background-color: #f6f5f7;
+	background: url(../assets/img/bg8.png) no-repeat center center;
 	background-size: 100% 100%;
 }
 
@@ -113,7 +113,8 @@ export default {
 	transform: translate(-50%, -50%);
 	background: #fff;
 	width: 370px;
-	border-radius: 5px;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2);
 	padding: 25px;
 	text-align: center;
 
@@ -132,7 +133,7 @@ export default {
 
 		.title {
 			i {
-				color: #FF6C60;
+				color: #23282f;
 			}
 		}
 	}
@@ -175,7 +176,7 @@ export default {
 .tiparea {
 	text-align: left;
 	font-size: 12px;
-	color: #4cbb15;
+	color: #5b6778;
 	padding: 10px 0;
 
 	.tip {
@@ -196,8 +197,8 @@ export default {
 
 .loginForm {
 	.el-button--primary {
-		background-color: #FF7C1A;
-		border: 1px solid #FF7C1A;
+		background-color: #23282f;
+		border: 1px solid #23282f;
 	}
 }
 

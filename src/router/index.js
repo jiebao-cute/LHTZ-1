@@ -50,7 +50,7 @@ export const constantRouterMap = [
 			{
 				path: 'index',
 				meta: {
-					title: '首页',
+					title: '量化投资',
 					icon: 'icondashboard',
 					routerType: 'leftmenu'
 				},

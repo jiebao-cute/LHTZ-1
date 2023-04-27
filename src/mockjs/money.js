@@ -14,7 +14,7 @@ for (let i = 0; i < count; i++) {
     address: Mock.mock('@county(true)'),
     createTime: Mock.Random.datetime(),
     income: Mock.Random.integer(0, 9999),
-    pay: Mock.Random.integer(0, 9999), 
+    pay: Mock.Random.integer(0, 9999),
     accoutCash: Mock.Random.integer(0, 9999),
     'incomePayType|1': typelist
   }))
@@ -48,12 +48,12 @@ export default {
    * @return {{code: number, data: {message: string}}}
    */
   createMoney: config => {
-    const { username, address, income, pay , accoutCash, incomePayType,tableAddress } = mUtils.param2Obj(config.url)
+    const { username, address, income, pay, accoutCash, incomePayType, tableAddress } = mUtils.param2Obj(config.url)
     List.unshift({
       id: Mock.Random.guid(),
       username: username,
       address: address,
-      tableAddress:tableAddress,
+      tableAddress: tableAddress,
       createTime: Mock.Random.now(),
       income: income,
       pay: pay,
@@ -95,10 +95,10 @@ export default {
    * @return {{code: number, data: {message: string}}}
    */
   batchremoveMoney: config => {
-    console.log(config);
+
     // console.log(mUtils.param2Obj(config.url));
     let { ids } = mUtils.param2Obj(config.url)
-    console.log(ids);
+
     ids = ids.split(',')
     List = List.filter(u => !ids.includes(u.id))
     return {
@@ -114,7 +114,7 @@ export default {
    * @return {{code: number, data: {message: string}}}
    */
   updateMoney: config => {
-    const { id,username, address, income, pay , accoutCash, incomePayType } = mUtils.param2Obj(config.url)
+    const { id, username, address, income, pay, accoutCash, incomePayType } = mUtils.param2Obj(config.url)
     List.some(u => {
       if (u.id === id) {
         u.username = username

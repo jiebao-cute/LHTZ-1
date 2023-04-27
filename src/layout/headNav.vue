@@ -195,7 +195,7 @@ export default {
     justify-content: space-between;
     height: 60px;
     box-sizing: border-box;
-    background: #fff;
+    background: #23282f;
 
     .logout {
         vertical-align: middle;
@@ -209,17 +209,20 @@ export default {
 }
 
 .userinfo-right {
+
     width: 320px;
     padding: 0 10px;
     justify-content: space-between;
 }
 
 .userinfo {
+
     line-height: 60px;
     text-align: right;
 }
 
 .avatar {
+    background: #23282f;
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -250,6 +253,8 @@ export default {
         color: #a9d86e;
         font-weight: bolder;
         font-size: 13px;
+
+
     }
 }
 

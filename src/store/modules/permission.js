@@ -68,8 +68,8 @@ function filterAsyncRouter(asyncRouterMap, roles) {
 
 const permission = {
   state: {
-    routers: constantRouterMap,
-    addRouters: [],
+    routers: constantRouterMap,//非权限路由
+    addRouters: [],//权限路由
     topRouters: [],
     topTitle: '',
     menuIndex: 0
@@ -98,12 +98,13 @@ const permission = {
   actions: {
     // 根据角色，重新设置权限路由;并保存到vuex中,SET_ROUTERS;
     GenerateRoutes({ commit }, data) {
-      console.log("laile")
+
       return new Promise(resolve => {
         let roles = data.roles;
         let accessedRouters = '';
         if (roles.indexOf('admin') >= 0) {
           // 如果是管理员，直接将权限路由赋值给新路由;
+          //asyncRouterMap 权限路由，在router里面定义了的
           accessedRouters = asyncRouterMap
         } else {
           // 非管理员用户,如roles:['editor','developer']，则需要过滤权限路由数据

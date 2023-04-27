@@ -57,8 +57,10 @@ export default {
 <style lang="less" scoped>
 .menu_top {
 
+
     // width:calc(100% - 350px);
     .el-menu-demo {
+        background: #23282f;
         overflow-y: hidden;
         flex: 1;
     }
