@@ -14,9 +14,9 @@ for (let i = 0; i < count; i++) {
     address: Mock.mock('@county(true)'),
     createTime: Mock.Random.datetime(),
     updateTime: Mock.Random.now(),
-    ip:Mock.mock('@ip'),
-    region:Mock.mock('@region'),
-    areaId:/\d{7}/,
+    ip: Mock.mock('@ip'),
+    region: Mock.mock('@region'),
+    areaId: /\d{7}/,
     email: Mock.Random.email(),
     'isp|1': typelist
   }))
@@ -27,24 +27,24 @@ export default {
   login: config => {
     let data = JSON.parse(config.body);
     let userList = {};
-    if(data.username === 'admin'){
-        userList = {
-            token:'admin',
-            name:'管理员',
-        }
-    }else if(data.username === 'editor'){
-        userList = {
-            token:'editor',
-            name:'赵晓编',
-        }
-    }else{
-       return {
+    if (data.username === 'admin') {
+      userList = {
+        token: 'admin',
+        name: '管理员',
+      }
+    } else if (data.username === 'editor') {
+      userList = {
+        token: 'editor',
+        name: '赵晓编',
+      }
+    } else {
+      return {
         code: -1,
         data: {
           msg: "用户名错误",
-          status:'fail'
+          status: 'fail'
         }
-       }
+      }
     }
     return {
       code: 200,
@@ -53,8 +53,8 @@ export default {
       }
     }
   },
-   // 用户登出
-   logout: config => {
+  // 用户登出
+  logout: config => {
     return {
       code: 200,
       data: {
@@ -63,23 +63,23 @@ export default {
     }
   },
   // 获取登录用户信息
-  getUserInfo:config => {
+  getUserInfo: config => {
     let data = JSON.parse(config.body);
     let userList = {};
-    if(data.token === 'admin'){
-        userList = {
-            roles: ['admin'],
-            name:'admin',
-            avatar:'https://wx.qlogo.cn/mmopen/vi_32/un2HbJJc6eiaviaibvMgiasFNlVDlNOb9E6WCpCrsO4wMMhHIbsvTkAbIehLwROVFlu8dLMcg00t3ZtOcgCCdcxlZA/132'
-        }
-    }else if(data.token === 'editor'){
-        userList = {
-            roles: ['editor'],
-            name:'editor',
-            avatar:'https://mirror-gold-cdn.xitu.io/168e088859e325b9d85?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1'
-        }
-    }else{
-        userList = {}
+    if (data.token === 'admin') {
+      userList = {
+        roles: ['admin'],
+        name: 'admin',
+        avatar: 'https://img95.699pic.com/element/40184/7078.png_860.png  '
+      }
+    } else if (data.token === 'editor') {
+      userList = {
+        roles: ['editor'],
+        name: 'editor',
+        avatar: 'https://mirror-gold-cdn.xitu.io/168e088859e325b9d85?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1'
+      }
+    } else {
+      userList = {}
     }
     return {
       code: 200,
@@ -88,14 +88,14 @@ export default {
       }
     }
   },
-   /**
-   * 获取用户列表
-   * 要带参数 name, page, limt; name可以不填, page,limit有默认值。
-   * @param name, page, limit
-   * @return {{code: number, count: number, data: *[]}}
-   */
-  getUserList:config => {
-    const { limit , page } = JSON.parse(config.body);
+  /**
+  * 获取用户列表
+  * 要带参数 name, page, limt; name可以不填, page,limit有默认值。
+  * @param name, page, limit
+  * @return {{code: number, count: number, data: *[]}}
+  */
+  getUserList: config => {
+    const { limit, page } = JSON.parse(config.body);
     let mockList = List;
     const userList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
     return {
@@ -107,5 +107,5 @@ export default {
     }
   }
 
-  
+
 }

@@ -4,41 +4,11 @@
             <top-menu></top-menu>
             <div class="userinfo-right rflex">
                 <div class="notify-row">
-                    <ul class="top-menu">
-                        <li class="li-badge">
-                            <el-tooltip class="item" effect="dark" content="访问github" placement="top">
-                                <a :href='github' target="_blank">
-                                    <icon-svg icon-class="iconGithub" />
-                                </a>
-                            </el-tooltip>
-                        </li>
-                        <li class="li-badge">
-                            <a :href='github' target="_blank" v-popover:qcode>
-                                <icon-svg icon-class="iconwechat" />
-                                <el-popover ref="qcode" popper-class="qcodepopper" placement="bottom" trigger="hover">
-                                    <div class="wechat-area cflex">
-                                        <p class="titles">加我微信</p>
-                                        <img :src="wechat.wechatImg" alt="加我微信" />
-                                    </div>
-                                </el-popover>
-                            </a>
-                        </li>
-                        <li class="li-badge">
-                            <a :href='github' target="_blank" v-popover:qqcode>
-                                <icon-svg icon-class="iconqq" />
-                                <!-- <i class="iconfont iconqq"></i> -->
-                                <el-popover ref="qqcode" popper-class="qcodepopper" placement="bottom" trigger="hover">
-                                    <div class="wechat-area cflex">
-                                        <p class="titles">加入qq群</p>
-                                        <img :src="qq.qqImg" alt="加入qq群" />
-                                    </div>
-                                </el-popover>
-                            </a>
-                        </li>
-                    </ul>
+
                 </div>
                 <div class="userinfo">
-                    <el-menu class="el-menu-demo" mode="horizontal">
+                    <el-menu class="el-menu-demo" mode="horizontal" active-text-color="#fff " text-color="#fff"
+                        background-color="#15181c">
                         <el-submenu index="1" popper-class="langItem">
                             <template slot="title">
                                 <img :src="langLogo" class='langAvatar' alt="">
@@ -195,7 +165,7 @@ export default {
     justify-content: space-between;
     height: 60px;
     box-sizing: border-box;
-    background: #23282f;
+    background: #15181c;
 
     .logout {
         vertical-align: middle;
@@ -216,13 +186,24 @@ export default {
 }
 
 .userinfo {
-
     line-height: 60px;
     text-align: right;
 }
 
+/deep/ .el-menu-demo {
+    background: #15181c;
+}
+
+.el-submenu {
+    padding-left: 23px;
+}
+
+.is-opened {
+    background: #15181c;
+}
+
 .avatar {
-    background: #23282f;
+    background: #15181c;
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -231,6 +212,8 @@ export default {
 }
 
 .langAvatar {
+    background-color: #fff;
+    margin: 0 10px;
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -244,13 +227,15 @@ export default {
     padding: 0 5px;
 
     .name {
+        color: #fff;
         line-height: 20px;
         text-align: center;
         font-size: 12px;
+        font-weight: bolder;
     }
 
     .avatarname {
-        color: #a9d86e;
+        color: #fff;
         font-weight: bolder;
         font-size: 13px;
 

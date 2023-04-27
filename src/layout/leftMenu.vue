@@ -2,7 +2,7 @@
     <div class="menu_left cflex" :style="{ width: sidebar.width + 'px' }">
         <div class="menu_page_top rflex">
             <img :class='["logo", { "closeLogo": !sidebar.opened }]' :src="logo" alt="量化投资">
-            <span class='title' v-show="sidebar.opened">{{ $t('commons.xiaoai') }}<i>Admin</i></span>
+            <span class='title' v-show="sidebar.opened">{{ $t('commons.xiaoai') }}<i>Ad</i></span>
         </div>
         <div class="menu_page_bottom is-scroll-left">
             <el-menu mode="vertical" theme="dark" :show-timeout="200" :default-active="$route.path" :collapse="isCollapse"
@@ -51,9 +51,9 @@ export default {
     data() {
         return {
             menuObj: {
-                bgColor: '#fff',
+                bgColor: '#15181c',
                 textColor: '#666',
-                activeTextColor: '#ff6428',
+                activeTextColor: '#ffff',
             },
             logo: logoImg
         };
@@ -80,10 +80,11 @@ export default {
  
  
 <style lang="less" scoped>
-@left-bgColor: #fff; // 左侧菜单背景颜色;
-@icon-link: #FF6C60;
+@left-bgColor: #15181c; // 左侧菜单背景颜色;
+@icon-link: #ffff;
 
 .menu_left {
+    background: #15181c;
     position: absolute;
     top: 0;
     left: 0;
@@ -91,15 +92,18 @@ export default {
 }
 
 .menu_page_top {
+    background: #15181c;
     width: 100%;
     height: 60px;
     align-items: center;
     justify-content: space-around;
     text-transform: uppercase;
     box-sizing: border-box;
-    box-shadow: 0px 2px 5px 0px rgba(230, 224, 224, 0.5);
+    border-bottom: 1px solid #0a0b0c;
+    //box-shadow: 0px 2px 5px 0px rgba(230, 224, 224, 0.5);
 
     .logo {
+        background-color: #ffff;
         height: 36px;
         width: 36px;
         vertical-align: middle;
@@ -113,9 +117,10 @@ export default {
 
     .title {
         font-size: 22px;
+        color: #ffff;
 
         i {
-            color: #FF6C60;
+            color: #ffff;
         }
     }
 }
@@ -127,7 +132,7 @@ export default {
     flex: 1;
     margin-top: 3px;
     z-index: 10;
-    box-shadow: 0 0 10px 0 rgba(230, 224, 224, 0.5)
+    //box-shadow: 0 0 10px 0 rgba(230, 224, 224, 0.5)
 }
 </style>
  
