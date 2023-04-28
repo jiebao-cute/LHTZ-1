@@ -54,7 +54,7 @@ export default {
         right: 0;
         top: 0;
         bottom: 0;
-        background: #15181c;
+        background: #23282f;
 
         .menu_content {
             position: relative;

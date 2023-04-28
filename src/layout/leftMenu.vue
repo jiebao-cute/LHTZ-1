@@ -2,7 +2,7 @@
     <div class="menu_left cflex" :style="{ width: sidebar.width + 'px' }">
         <div class="menu_page_top rflex">
             <img :class='["logo", { "closeLogo": !sidebar.opened }]' :src="logo" alt="量化投资">
-            <span class='title' v-show="sidebar.opened">{{ $t('commons.xiaoai') }}<i>Ad</i></span>
+            <span class='title' v-show="sidebar.opened">{{ $t('commons.xiaoai') }}<i>Admin</i></span>
         </div>
         <div class="menu_page_bottom is-scroll-left">
             <el-menu mode="vertical" theme="dark" :show-timeout="200" :default-active="$route.path" :collapse="isCollapse"
@@ -51,9 +51,10 @@ export default {
     data() {
         return {
             menuObj: {
-                bgColor: '#15181c',
-                textColor: '#666',
-                activeTextColor: '#ffff',
+                bgColor: '#23282f',
+                textColor: '#C0C0C0 ',
+                activeTextColor: '#fff',
+
             },
             logo: logoImg
         };
@@ -80,19 +81,22 @@ export default {
  
  
 <style lang="less" scoped>
-@left-bgColor: #15181c; // 左侧菜单背景颜色;
+@left-bgColor: #23282f; // 左侧菜单背景颜色;
 @icon-link: #ffff;
 
 .menu_left {
-    background: #15181c;
+    background: #23282f;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
+    z-index: 30;
 }
 
+
+
 .menu_page_top {
-    background: #15181c;
+    background: #23282f;
     width: 100%;
     height: 60px;
     align-items: center;
@@ -116,10 +120,11 @@ export default {
     }
 
     .title {
-        font-size: 22px;
+        font-size: 20px;
         color: #ffff;
 
         i {
+            padding: 0 5px;
             color: #ffff;
         }
     }
@@ -132,7 +137,9 @@ export default {
     flex: 1;
     margin-top: 3px;
     z-index: 10;
+
     //box-shadow: 0 0 10px 0 rgba(230, 224, 224, 0.5)
+
 }
 </style>
  

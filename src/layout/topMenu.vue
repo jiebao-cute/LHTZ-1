@@ -60,7 +60,7 @@ export default {
 
     // width:calc(100% - 350px);
     .el-menu-demo {
-        background: #15181c;
+        background: #23282f;
         overflow-y: hidden;
         flex: 1;
     }

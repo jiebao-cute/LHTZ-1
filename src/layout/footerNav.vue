@@ -2,12 +2,10 @@
     <div class='footer'>
         <p class="intro rflex">
             <span>{{ $t('commons.xiaoai') }}Admin</span>
-            <a :href='github' target="_blank">
-                <icon-svg icon-class="iconGithub" />
-            </a>
+
             <span>wdlhao2013({{ $t('commons.wechatNumber') }})</span>
         </p>
-        <p class="beian">鄂ICP备18001612号</p>
+        <p class="beian">量化投资</p>
     </div>
 </template>
 
@@ -31,12 +29,13 @@ export default {
 <style lang="less">
 .footer {
     width: 100%;
-    padding: 10px 0;
+    padding: 0;
     font-size: 12px;
     text-align: center;
-    background: #fff;
+    background: #23282f;
 
     p {
+        color: #fff;
         line-height: 30px;
     }
 

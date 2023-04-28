@@ -6,7 +6,7 @@ const zh = {
     editor: '赵晓编',
     quit: '退出',
     hi: '您好',
-    index: '首页',
+    index: '今日市场',
     userManage: '用户管理',
     share: '分享功能',
     infoManage: '信息管理',
@@ -38,7 +38,8 @@ const zh = {
   index: {
     yearLoss: '年度总盈亏',
     yearProfit: '年度收益率',
-    potentialInvestor: '潜在投资人',
+    potentialInvestor: '高端车型和定价推动了梅赛德斯-奔驰的利润增长',
+
     intentionInvestor: '意向投资人',
     waitExamineInvestor: '待审投资人',
     examiningInvestor: '审核中投资人',

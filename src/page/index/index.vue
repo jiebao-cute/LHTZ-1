@@ -1,87 +1,61 @@
 <template>
 	<section class="data_section" ref="data_section">
-		<a :href="github" target="_blank">
-			<el-row :gutter="10" class="row_list">
-				<el-col :span="8">
-					<div class="row_left row_base">
-						<el-col :span="12">
-							<div class="pay saleBgcolor data_list rflex">
-								<div class="leftItem cflex wflex">
-									<p class="investor">{{ $t('index.yearLoss') }}</p>
-									<p class="number">68<span class="perTitle">({{ $t('index.tenMillion') }})</span></p>
-								</div>
-								<div class="rightItem">
-									<icon-svg icon-class="iconfukuan" />
-								</div>
+		<el-row :gutter="10" class="row_list">
+			<el-col :span="8">
+				<div class="row_left row_base">
+					<el-col :span="14">
+						<div class="pay saleBgcolor data_list rflex">
+							<div class="leftItem cflex wflex">
+								<p class="investor">{{ $t('index.yearLoss') }}</p>
+								<p class="number">68<span class="perTitle">({{ $t('index.tenMillion') }})</span></p>
 							</div>
-						</el-col>
-						<el-col :span="12">
-							<div class="pay taxBgcolor data_list rflex">
-								<div class="leftItem cflex wflex">
-									<p class="investor">{{ $t('index.yearProfit') }}</p>
-									<p class="number">120<span class="perTitle">(%)</span></p>
-								</div>
-								<div class="rightItem">
-									<icon-svg icon-class="iconpay3" />
-								</div>
+							<div class="rightItem">
+								<icon-svg icon-class="iconfukuan" />
 							</div>
-						</el-col>
-					</div>
-				</el-col>
-				<el-col :span="16">
-					<div class="row_right row_base">
-						<el-col :span="6">
-							<div class="extenedBgcolor data_list rflex">
-								<div class="leftItem cflex wflex">
-									<p class="investor">{{ $t('index.potentialInvestor') }}</p>
-									<p class="number">686<span class="perTitle">({{ $t('index.person') }})</span></p>
-									<p class="cardText">Decreased by 10%</p>
-								</div>
-								<div class="rightItem">
-									<icon-svg icon-class="iconpay2" />
-								</div>
+						</div>
+					</el-col>
+					<el-col :span="10">
+						<div class="pay taxBgcolor data_list rflex">
+							<div class="leftItem cflex wflex">
+								<p class="investor">{{ $t('index.yearProfit') }}</p>
+								<p class="number">120<span class="perTitle">(%)</span></p>
 							</div>
-						</el-col>
-						<el-col :span="6">
-							<div class="likeBgcolor data_list rflex">
-								<div class="leftItem cflex wflex">
-									<p class="investor">{{ $t('index.intentionInvestor') }}</p>
-									<p class="number">1276<span class="perTitle">({{ $t('index.person') }})</span></p>
-									<p class="cardText">Decreased by 50%</p>
-								</div>
-								<div class="rightItem">
-									<icon-svg icon-class="iconpay1" />
-								</div>
+
+						</div>
+					</el-col>
+				</div>
+			</el-col>
+			<el-col :span="16">
+				<div class="row_right row_base">
+					<el-col :span="1">
+						<div class="leftItem-text">
+							<div class="">
+								<h4>市</h4>
 							</div>
-						</el-col>
-						<el-col :span="6">
-							<div class="linkBgColor data_list rflex">
-								<div class="leftItem cflex wflex">
-									<p class="investor">{{ $t('index.waitExamineInvestor') }}</p>
-									<p class="number">82367<span class="perTitle">({{ $t('index.person') }})</span></p>
-									<p class="cardText">Decreased by 30%</p>
-								</div>
-								<div class="rightItem">
-									<icon-svg icon-class="iconpay" />
-								</div>
+							<div class="">
+								<h4>场</h4>
 							</div>
-						</el-col>
-						<el-col :span="6">
-							<div class="keleBgColor data_list rflex">
-								<div class="leftItem cflex wflex">
-									<p class="investor">{{ $t('index.examiningInvestor') }}</p>
-									<p class="number">827373<span class="perTitle">({{ $t('index.person') }})</span></p>
-									<p class="cardText">Decreased by 80%</p>
-								</div>
-								<div class="rightItem">
-									<icon-svg icon-class="iconfufei0" />
-								</div>
+							<div class="">
+								<h4>资</h4>
 							</div>
-						</el-col>
-					</div>
-				</el-col>
-			</el-row>
-		</a>
+							<div class="">
+								<h4>讯</h4>
+							</div>
+						</div>
+					</el-col>
+					<el-col :span="23">
+						<div class="extenedBgcolor data_list rflex">
+							<div class="leftItem cflex wflex">
+								<div class="investor text">{{ $t('index.potentialInvestor') }}</div>
+								<div class="text">OMV 利润下降，警告产量下降,OMV 利润下降，警告产量下降, </div>
+								<div class="text">日本央行维持宽松政策，将重新审视货币政策，将重新审视货币政策</div>
+							</div>
+						</div>
+					</el-col>
+
+				</div>
+			</el-col>
+		</el-row>
 		<el-row :gutter="10" class="row_list order_list">
 			<el-col :span="7">
 				<log-list></log-list>
@@ -168,13 +142,17 @@ export default {
 			border-radius: 6px;
 			height: 120px;
 		}
+
+		.leftItem-text {
+			padding-top: 4px;
+		}
 	}
 
 	.order_list {
 		.orderArea {
 			width: 100%;
 			height: 300px;
-			background: #fff !important;
+			background: #f9f9f9 !important;
 			border-radius: 6px;
 			box-sizing: border-box;
 			padding: 10px;
@@ -188,17 +166,26 @@ export default {
 	}
 
 	.data_list {
+		//background: #eeeff2;
+		background: #fff;
 		text-align: center;
 		font-size: 14px;
 		border-radius: 6px;
 		padding: 10px;
-		color: #fff;
+		color: #000;
 		height: 80px;
+		border: 1px solid #eeeff2;
 
 		.leftItem {
 			align-items: start;
 			justify-content: space-between;
 			text-align: left;
+
+			.text {
+				width: 100%;
+				border-bottom: 1px solid #C0C0C0 !important;
+				color: #696969;
+			}
 		}
 
 		.rightItem {
@@ -229,4 +216,5 @@ export default {
 		}
 	}
 
-}</style>
+}
+</style>

@@ -4,11 +4,10 @@
             <top-menu></top-menu>
             <div class="userinfo-right rflex">
                 <div class="notify-row">
-
                 </div>
                 <div class="userinfo">
                     <el-menu class="el-menu-demo" mode="horizontal" active-text-color="#fff " text-color="#fff"
-                        background-color="#15181c">
+                        background-color="#23282f">
                         <el-submenu index="1" popper-class="langItem">
                             <template slot="title">
                                 <img :src="langLogo" class='langAvatar' alt="">
@@ -29,7 +28,7 @@
                                     <span class="name">{{ $t('commons.hi') }},</span>
                                     <span class='name avatarname'> {{ $t(`commons.${name}`) }}</span>
                                 </div>
-                                <img :src="avatar" class='avatar' alt="">
+                                <img :src="userImg" class='avatar' alt="">
                             </template>
                             <el-menu-item index="2-1" @click="setDialogInfo('info')">{{ $t('commons.infoShow')
                             }}</el-menu-item>
@@ -57,7 +56,7 @@ import logoImg from "@/assets/img/logo.png";
 import chinaImg from "@/assets/img/china.svg";
 import americaImg from "@/assets/img/america.svg";
 import { github } from "@/utils/env";
-
+import userImg from "@/assets/img/admin.png";
 
 export default {
     name: 'head-nav',
@@ -67,6 +66,7 @@ export default {
             langLogo: getToken('langLogo') || americaImg,
             chinaImg: chinaImg,
             americaImg: americaImg,
+            userImg: userImg,
             wechat: {
                 wechatImg: wechatImg,
                 isWechat: false
@@ -165,7 +165,7 @@ export default {
     justify-content: space-between;
     height: 60px;
     box-sizing: border-box;
-    background: #15181c;
+    background: #23282f;
 
     .logout {
         vertical-align: middle;
@@ -179,7 +179,7 @@ export default {
 }
 
 .userinfo-right {
-
+    background: #23282f;
     width: 320px;
     padding: 0 10px;
     justify-content: space-between;
@@ -191,7 +191,7 @@ export default {
 }
 
 /deep/ .el-menu-demo {
-    background: #15181c;
+    background: #23282f;
 }
 
 .el-submenu {
@@ -199,11 +199,11 @@ export default {
 }
 
 .is-opened {
-    background: #15181c;
+    background: #23282f;
 }
 
 .avatar {
-    background: #15181c;
+    background: #23282f;
     width: 32px;
     height: 32px;
     border-radius: 50%;
