@@ -2,7 +2,7 @@
     <div class="menu_left cflex" :style="{ width: sidebar.width + 'px' }">
         <div class="menu_page_top rflex">
             <img :class='["logo", { "closeLogo": !sidebar.opened }]' :src="logo" alt="量化投资">
-            <span class='title' v-show="sidebar.opened">{{ $t('commons.xiaoai') }}<i>Admin</i></span>
+            <span class='title' v-show="sidebar.opened">{{ $t('commons.ai') }}<i>Admin</i></span>
         </div>
         <div class="menu_page_bottom is-scroll-left">
             <el-menu mode="vertical" theme="dark" :show-timeout="200" :default-active="$route.path" :collapse="isCollapse"

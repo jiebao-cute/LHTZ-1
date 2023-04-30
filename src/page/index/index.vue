@@ -27,28 +27,23 @@
 			</el-col>
 			<el-col :span="16">
 				<div class="row_right row_base">
-					<el-col :span="1">
+					<el-col :span="3">
 						<div class="leftItem-text">
 							<div class="">
-								<h4>市</h4>
+								<h4>Market
+								</h4>
 							</div>
 							<div class="">
-								<h4>场</h4>
-							</div>
-							<div class="">
-								<h4>资</h4>
-							</div>
-							<div class="">
-								<h4>讯</h4>
+								<h4>News</h4>
 							</div>
 						</div>
 					</el-col>
-					<el-col :span="23">
+					<el-col :span="21">
 						<div class="extenedBgcolor data_list rflex">
 							<div class="leftItem cflex wflex">
-								<div class="investor text">{{ $t('index.potentialInvestor') }}</div>
-								<div class="text">OMV 利润下降，警告产量下降,OMV 利润下降，警告产量下降, </div>
-								<div class="text">日本央行维持宽松政策，将重新审视货币政策，将重新审视货币政策</div>
+								<div class="investor text">ProSiebenSat.1 Tumbles on Outlook, Dividend News</div>
+								<div class="text">French Economy Expands Slightly, as Expected </div>
+								<div class="text">ProSiebenSat.1 Tumbles on Outlook, Dividend News</div>
 							</div>
 						</div>
 					</el-col>
@@ -72,7 +67,7 @@
 				<line-chart></line-chart>
 			</el-col>
 			<el-col :span="7">
-				<radar-chart></radar-chart>
+				<err-list></err-list>
 			</el-col>
 		</el-row>
 		<el-row :gutter="10" class="row_list">
@@ -91,21 +86,21 @@
 </template>
 
 <script>
-import echarts from 'echarts'
+
 import salesTable from "./components/salesTable";  // 销售数据表格
 import commentList from "./components/commentList";  // 用户评论列表
 import cardList from "./components/cardList";  // card列表
-import logList from "./components/logList";  // 日志列表
-import barChart from 'cps/echarts/barChart' // 用户投资类型 柱状图
-import pieChart from 'cps/echarts/pieChart' // 用户投资类型 饼状图
-import radarChart from 'cps/echarts/radarChart' // 用户投资类型 雷达图
-import lineChart from 'cps/echarts/lineChart' // 用户投资类型 折线图
-import { github } from "@/utils/env";
+import logList from "./components/logList";  // 基本信息
+import errList from './components/errList' // 异常记录
+import barChart from 'cps/echarts/barChart' // K线
+import pieChart from 'cps/echarts/pieChart' // 投资类型 饼状图
+import lineChart from 'cps/echarts/lineChart' // 每日收益 柱状图
+
 
 export default {
 	data() {
 		return {
-			github: github
+
 		}
 	},
 	components: {
@@ -115,7 +110,7 @@ export default {
 		logList,
 		barChart,
 		pieChart,
-		radarChart,
+		errList,
 		lineChart
 	},
 	created() {
@@ -144,7 +139,8 @@ export default {
 		}
 
 		.leftItem-text {
-			padding-top: 4px;
+			padding-top: 25px;
+
 		}
 	}
 

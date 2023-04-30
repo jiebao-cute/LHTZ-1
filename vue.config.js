@@ -10,35 +10,6 @@ const resolve = dir => {
 const env = process.env.NODE_ENV
 let target = process.env.VUE_APP_URL  // development和production环境是不同的
 
-const cdn = {
-    // 开发环境
-    dev: {
-        css: [],
-        js: [
-        ]
-    },
-    // 生产环境
-    build: {
-        css: [
-            'https://cdn.bootcss.com/element-ui/2.11.1/theme-chalk/index.css',
-            'https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css'
-        ],
-        js: [
-            'https://cdn.bootcss.com/vue/2.6.10/vue.min.js',
-            'https://cdn.bootcss.com/vue-router/3.1.2/vue-router.min.js',
-            'https://cdn.bootcss.com/vuex/2.3.1/vuex.min.js',
-            'https://cdn.bootcss.com/axios/0.19.0/axios.min.js',
-            'https://cdn.bootcss.com/vue-i18n/8.13.0/vue-i18n.min.js',
-            'https://cdn.bootcss.com/element-ui/2.11.1/index.js',
-            'https://cdn.bootcss.com/echarts/3.8.5/echarts.min.js',
-            'https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js',
-            'https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js',
-            'https://cdn.bootcss.com/js-cookie/2.2.0/js.cookie.min.js'
-        ]
-    }
-}
-
-
 module.exports = {
     publicPath: process.env.NODE_ENV === "production" ? "/permission/" : "/",
     outputDir: './dist',
@@ -51,7 +22,7 @@ module.exports = {
         open: true,
         host: '127.0.0.1',
         port: 8808
-        // 由于本项目数据通过easy-mock和mockjs模拟，不存在跨域问题，无需配置代理;
+        // 项目数据通过easy-mock和mockjs模拟，不存在跨域问题，无需配置代理;
         // proxy: { 
         //   '/v2': {
         //       target: target,
@@ -95,37 +66,10 @@ module.exports = {
                 openAnalyzer: false,   // 是否打开默认浏览器
                 analyzerPort: 8777
             }))
-
-        // 对vue-cli内部的 webpack 配置进行更细粒度的修改。
-        // 添加CDN参数到htmlWebpackPlugin配置中， 详见public/index.html 修改
-        config
-            .plugin('html')
-            .tap(args => {
-                if (process.env.NODE_ENV === 'production') {
-                    args[0].cdn = cdn.build
-                }
-                if (process.env.NODE_ENV === 'development') {
-                    args[0].cdn = cdn.dev
-                }
-                return args
-            })
     },
     configureWebpack: config => {
         // 为生产环境修改配置...
         if (process.env.NODE_ENV === 'production') {
-            // 忽略生产环境打包的文件
-            config.externals = {
-                "vue": "Vue",
-                "vue-router": "VueRouter",
-                "vuex": "Vuex",
-                "vue-i18n": "VueI18n",
-                "axios": "axios",
-                'element-ui': 'ELEMENT',
-                'echarts': 'echarts',
-                'mockjs': 'Mock',
-                'nprogress': 'NProgress',
-                'js-cookie': 'Cookies'
-            }
             // 去除console来减少文件大小，效果同'UglifyJsPlugin'
             new TerserPlugin({
                 cache: true,

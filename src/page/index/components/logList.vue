@@ -4,42 +4,40 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>
-          <h4>美国股票市场</h4>
+          <h4>基本信息</h4>
         </span>
-
         <img :src="Arrowhead" class='langAvatar' alt="">
       </div>
       <div class="logArea el-scrollbar">
+        <span class="titleTop">PSC策略为趋势策略，结合AI学习+风险控制为一体的综合性策略，预期年化收益28%</span>
         <div class="item" v-for="(item, index) in logsData" :key="index">
           <p class="timeArea">
-            <span class="title">日期：</span>
-            <span class="title time">{{ item.createTime }}</span>
-          </p>
-          <div class="logContent">
-            <p class="title">更新内容：</p>
-            <ul class="logUl">
-              <li v-for="(citem, cindex) in item.data" :key="cindex">{{ citem }}</li>
-            </ul>
+          <div class="wapper">
+            <span class="title time">{{ item.title }}</span>
+            <span class="title data" v-for="(citem, cindex) in item.data" :key="cindex"> {{ citem }}</span>
           </div>
-        </div>
-      </div>
+          </p>
 
+        </div>
+
+      </div>
     </el-card>
   </div>
 </template>
 
 <script>
 import logsData from "@/assets/datas/logs.json";
-import { github } from "@/utils/env";
 import Arrowhead from "@/assets/img/Arrowhead.svg";
 export default {
   name: 'logList',
   data() {
     return {
       logsData: logsData.data,
-      github: github,
-      Arrowhead: Arrowhead
+      Arrowhead: Arrowhead,
     };
+  },
+  methods: {
+
   }
 }
 </script>
@@ -69,11 +67,25 @@ export default {
       //vertical-align: middle;
       display: inline-block;
     }
+
+
   }
 
   .logArea {
     overflow: auto;
     height: 100%;
+
+    .titleTop {
+      font-size: 13px;
+      color: #1d4369;
+    }
+
+    .wapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
   }
 
   .item {
@@ -82,20 +94,14 @@ export default {
     }
 
     .time {
-      color: #87DE75;
+      color: #10110f;
     }
 
-    .logContent {
-      .logUl {
-        padding-left: 30px;
-
-        li {
-          font-size: 12px;
-          list-style: disc;
-          line-height: 20px;
-        }
-      }
+    .data {
+      color: #460b0b;
     }
+
+
   }
 }
 

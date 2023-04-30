@@ -12,6 +12,7 @@ import './components/iconSvg'
 import '@/permission' // permission control
 
 import '@/mockjs'; //  mock数据©©
+import echarts from 'echarts'
 
 
 // i18n国际化
@@ -21,7 +22,7 @@ import i18n from "@/lang";
 import { shareConfig } from './utils/share';
 Vue.prototype.shareConfig = shareConfig;
 
-
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false;
 
 // 字体图标线上地址,在index中使用cdn载入;

@@ -1,6 +1,6 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 import Mock from 'mockjs'
-// process.env.NODE_ENV === "development" ? Vue.use(Mock) : null;
+Vue.use(Mock);
 
 import tableAPI from './money'
 import salesAPI from './sales'

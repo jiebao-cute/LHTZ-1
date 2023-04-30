@@ -1,7 +1,7 @@
 <template>
     <div class='footer'>
         <p class="intro rflex">
-            <span>{{ $t('commons.xiaoai') }}Admin</span>
+            <span>{{ $t('commons.ai') }}Admin</span>
 
             <span>wdlhao2013({{ $t('commons.wechatNumber') }})</span>
         </p>

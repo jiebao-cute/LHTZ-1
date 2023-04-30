@@ -1,7 +1,7 @@
 const zh = {
   // layout
   commons: {
-    xiaoai: '玉洁',
+    ai: '玉洁',
     admin: '管理员',
     editor: '赵晓编',
     quit: '退出',

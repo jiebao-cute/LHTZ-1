@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { Layout, Content } from "../layout"; // 页面整体布局
-
-
-process.env.NODE_ENV === "development" ? Vue.use(Router) : null;
+Vue.use(Router);
 
 function filterTopRouterMap(name) {
 	let router = topRouterMap.find((item) => {
@@ -50,7 +48,7 @@ export const constantRouterMap = [
 			{
 				path: 'index',
 				meta: {
-					title: '量化投资',
+					title: '首页',
 					icon: 'icondashboard',
 					routerType: 'leftmenu'
 				},
