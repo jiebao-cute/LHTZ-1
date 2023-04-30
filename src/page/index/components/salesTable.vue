@@ -1,64 +1,107 @@
-<template>
-  <div class="salesTable">
-    <el-table :data="tableData" stripe height="424" style="width: 100%">
-      <el-table-column class-name="salesUsername" prop="username" label="USERNAME" width="150">
-        <template slot-scope="scope">
-          <img class="userImg" :src="userImg" alt="tuxiang" />
-          {{ (scope.row.username).substring(0, 12) }}
-        </template>
-      </el-table-column>
-      <el-table-column class-name="salesPrice" prop="price" label="PRICE" width="80">
-        <template slot-scope="scope">
-          <span v-if="scope.row.status === 1" class="saleColor">$ {{ scope.row.price }}</span>
-          <span v-if="scope.row.status === 2" class="taxColor">$ {{ scope.row.price }}</span>
-          <span v-if="scope.row.status === 3" class="extenedColor">$ {{ scope.row.price }}</span>
-          <span v-if="scope.row.status0 === 4" class="likeColor">$ {{ scope.row.price }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="date" label="DATE" width="160">
-        <template slot-scope="scope">
-          <icon-svg icon-class="icontime" />
-          {{ scope.row.date }}
-        </template>
-      </el-table-column>
-      <el-table-column class-name="salesStatus" prop="status" label="STATUS">
-        <template slot-scope="scope">
-          <span v-if="scope.row.status === 1" class="saleBgcolor">SALE</span>
-          <span v-if="scope.row.status === 2" class="taxBgcolor">TAX</span>
-          <span v-if="scope.row.status === 3" class="extenedBgcolor">EXTENDED</span>
-          <span v-if="scope.row.status === 4" class="likeBgcolor">LIKE</span>
-        </template>
-      </el-table-column>
 
-    </el-table>
+<template>
+  <div class="logContainer">
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span class="text">
+          <h4>业绩表现</h4>
+        </span>
+      </div>
+      <div class="logArea el-scrollbar">
+        <div class="item" v-for="(item, index) in logsData" :key="index">
+          <p class="timeArea">
+          <div class="wapper">
+            <span class="title time">{{ item.title }}</span>
+            <span class="title data" v-for="(citem, cindex) in item.data" :key="cindex"> {{ citem }}</span>
+          </div>
+          </p>
+
+        </div>
+
+      </div>
+    </el-card>
   </div>
 </template>
 
 <script>
-import { getSalesTableList } from "@/api/sales";
-import userImg from "@/assets/img/avatar-3.png";
-
+import scoteData from "@/assets/datas/scote.json";
+import Arrowhead from "@/assets/img/Arrowhead.svg";
 export default {
+  name: 'logList',
   data() {
     return {
-      tableData: [],
-      userImg: userImg
-    }
-  },
-  mounted() {
-    this.getSalesList();
+      logsData: scoteData.data,
+      Arrowhead: Arrowhead,
+    };
   },
   methods: {
-    // 获取列表数据
-    getSalesList() {
-      getSalesTableList({}).then(res => {
 
-        this.pageTotal = res.data.total
-        this.tableData = res.data.list
-      })
-    },
   }
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.logContainer {
+  padding: 10px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  height: 370px;
+  max-height: 370px;
+  overflow: hidden;
+  border-radius: 6px;
+
+  .clearfix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+
+  }
+
+  .logArea {
+    overflow: auto;
+    height: 100%;
+
+    .titleTop {
+      font-size: 13px;
+      color: #1d4369;
+    }
+
+    .wapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+  }
+
+  .item {
+    .title {
+      font-size: 13px;
+    }
+
+    .time {
+      color: #10110f;
+    }
+
+    .data {
+      color: #460b0b;
+    }
+
+
+  }
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both
+}
+</style>
+

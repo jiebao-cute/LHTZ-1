@@ -71,13 +71,13 @@
 			</el-col>
 		</el-row>
 		<el-row :gutter="10" class="row_list">
-			<el-col :span="11">
+			<el-col :span="6">
 				<sales-table></sales-table>
 			</el-col>
-			<el-col :span="7">
+			<el-col :span="10">
 				<comment-list></comment-list>
 			</el-col>
-			<el-col :span="6">
+			<el-col :span="8">
 				<card-list></card-list>
 			</el-col>
 		</el-row>

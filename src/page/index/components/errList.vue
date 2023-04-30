@@ -44,7 +44,7 @@ export default {
 <style lang="less" scoped>
 .logContainer {
     padding: 10px;
-    background: #f9f9f9;
+    background: #f5f1f1;
     box-sizing: border-box;
     height: 300px;
     max-height: 370px;
@@ -62,7 +62,7 @@ export default {
 
         .langAvatar {
             padding-left: 100px;
-            background-color: #fff;
+            background-color: #f4f4f4;
             margin: 0 10px;
             width: 20px;
             height: 20px;

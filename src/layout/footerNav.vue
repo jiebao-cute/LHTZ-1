@@ -2,8 +2,7 @@
     <div class='footer'>
         <p class="intro rflex">
             <span>{{ $t('commons.ai') }}Admin</span>
-
-            <span>wdlhao2013({{ $t('commons.wechatNumber') }})</span>
+            <span>lyj({{ $t('commons.wechatNumber') }})</span>
         </p>
         <p class="beian">量化投资</p>
     </div>
@@ -11,13 +10,11 @@
 
 
 <script>
-import { github } from "@/utils/env";
 
 export default {
     name: "footerNav",
     data() {
         return {
-            github: github
         }
     },
     methods: {
@@ -40,7 +37,7 @@ export default {
     }
 
     .intro {
-        width: 240px;
+        width: 140px;
         margin: 0 auto;
         justify-content: space-between;
         align-items: center;

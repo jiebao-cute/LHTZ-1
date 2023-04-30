@@ -18,10 +18,6 @@ import echarts from 'echarts'
 // i18n国际化
 import i18n from "@/lang";
 
-// 分享功能集合
-import { shareConfig } from './utils/share';
-Vue.prototype.shareConfig = shareConfig;
-
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false;
 

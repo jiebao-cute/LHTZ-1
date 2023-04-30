@@ -59,7 +59,7 @@ export default {
 
     .langAvatar {
       padding-left: 100px;
-      background-color: #fff;
+      background-color: #f4f4f4;
       margin: 0 10px;
       width: 20px;
       height: 20px;

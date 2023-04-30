@@ -50,12 +50,9 @@ import * as mUtils from '@/utils/mUtils'
 import { setToken, getToken } from '@/utils/auth'
 import store from "@/store";
 import topMenu from "./topMenu";
-import wechatImg from "@/assets/img/wechat.jpg";
-import qqImg from "@/assets/img/qq.png";
 import logoImg from "@/assets/img/logo.png";
 import chinaImg from "@/assets/img/china.svg";
 import americaImg from "@/assets/img/america.svg";
-import { github } from "@/utils/env";
 import userImg from "@/assets/img/admin.png";
 
 export default {
@@ -67,15 +64,6 @@ export default {
             chinaImg: chinaImg,
             americaImg: americaImg,
             userImg: userImg,
-            wechat: {
-                wechatImg: wechatImg,
-                isWechat: false
-            },
-            qq: {
-                qqImg: qqImg,
-                isQq: false,
-            },
-            github: github,
             menu: {
                 userBgcolor: '#f0f2f5'
             }
@@ -97,18 +85,6 @@ export default {
     mounted() {
     },
     methods: {
-        showWechat() {
-            this.wechat.isWechat = true;
-        },
-        hideWechat() {
-            this.wechat.isWechat = false;
-        },
-        showQq() {
-            this.qq.isQq = true;
-        },
-        hideQq() {
-            this.qq.isQq = false;
-        },
         logout() {
             this.$store.dispatch('LogOut').then(() => {
                 location.reload();
@@ -255,11 +231,6 @@ export default {
 .notify-row {
     line-height: 60px;
     flex: 1;
-
-    ul {
-        display: flex;
-        justify-content: space-around;
-    }
 }
 
 ul.top-menu>li {
