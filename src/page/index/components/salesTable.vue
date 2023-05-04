@@ -42,22 +42,19 @@ export default {
 
 <style lang="less" scoped>
 .logContainer {
-  padding: 10px;
+  border-radius: 6px;
+  padding: 0;
   background: #f9f9f9;
   box-sizing: border-box;
   height: 370px;
   max-height: 370px;
   overflow: hidden;
-  border-radius: 6px;
+  border-bottom: 1px solid #e8e8e8;
 
   .clearfix {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-
-
-
+    justify-content: flex-start;
   }
 
   .logArea {
@@ -87,7 +84,7 @@ export default {
     }
 
     .data {
-      color: #460b0b;
+      color: #10110f;
     }
 
 

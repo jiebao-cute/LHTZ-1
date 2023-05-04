@@ -6,7 +6,7 @@
         <span>
           <h4>基本信息</h4>
         </span>
-        <img :src="Arrowhead" class='langAvatar' alt="">
+
       </div>
       <div class="logArea el-scrollbar">
         <span class="titleTop">PSC策略为趋势策略，结合AI学习+风险控制为一体的综合性策略，预期年化收益28%</span>
@@ -44,13 +44,14 @@ export default {
 
 <style lang="less" scoped>
 .logContainer {
-  padding: 10px;
+  border-radius: 6px;
+  padding: 0;
   background: #f9f9f9;
   box-sizing: border-box;
   height: 370px;
   max-height: 370px;
   overflow: hidden;
-  border-radius: 6px;
+  border-bottom: 1px solid #e8e8e8;
 
   .clearfix {
     display: flex;
@@ -58,8 +59,8 @@ export default {
     justify-content: flex-start;
 
     .langAvatar {
-      padding-left: 100px;
-      background-color: #f4f4f4;
+      padding-left: 130px;
+      background-color: #ffff;
       margin: 0 10px;
       width: 20px;
       height: 20px;
@@ -89,6 +90,8 @@ export default {
   }
 
   .item {
+
+
     .title {
       font-size: 13px;
     }
@@ -98,7 +101,7 @@ export default {
     }
 
     .data {
-      color: #460b0b;
+      color: #10110f;
     }
 
 

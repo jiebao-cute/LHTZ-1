@@ -33,7 +33,7 @@ export default {
 
     p {
         color: #fff;
-        line-height: 30px;
+        line-height: 15px;
     }
 
     .intro {

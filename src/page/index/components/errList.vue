@@ -6,7 +6,7 @@
                 <span>
                     <h4 class="h4">异常记录</h4>
                 </span>
-                <img :src="Arrowhead" class='langAvatar' alt="">
+
             </div>
             <div class="logArea el-scrollbar">
 
@@ -26,13 +26,13 @@
   
 <script>
 import logsData from "@/assets/datas/err.json";
-import Arrowhead from "@/assets/img/Arrowhead.svg";
+
 export default {
     name: 'radarChart',
     data() {
         return {
             logsData: logsData.data,
-            Arrowhead: Arrowhead,
+
         };
     },
     methods: {
@@ -43,13 +43,14 @@ export default {
   
 <style lang="less" scoped>
 .logContainer {
-    padding: 10px;
-    background: #f5f1f1;
+    border-radius: 6px;
+    padding: 0;
+    background: #f9f9f9;
     box-sizing: border-box;
-    height: 300px;
+    height: 370px;
     max-height: 370px;
     overflow: hidden;
-    border-radius: 6px;
+    border-bottom: 1px solid #e8e8e8;
 
     .clearfix {
         display: flex;
@@ -60,16 +61,6 @@ export default {
             color: #8A0000;
         }
 
-        .langAvatar {
-            padding-left: 100px;
-            background-color: #f4f4f4;
-            margin: 0 10px;
-            width: 20px;
-            height: 20px;
-            // border-radius: 50%;
-            //vertical-align: middle;
-            display: inline-block;
-        }
 
 
     }
@@ -77,8 +68,6 @@ export default {
     .logArea {
         overflow: auto;
         height: 100%;
-
-
 
         .wapper {
             display: flex;
@@ -94,6 +83,7 @@ export default {
         }
 
         .data {
+            padding-left: 10px;
             color: #8A0000;
         }
 

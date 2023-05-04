@@ -117,7 +117,7 @@ export default {
         initEcharts() {
             const option = {
                 title: {
-                    text: "上证指数",
+                    text: "策略收益",
                     left: 0
                 },
                 tooltip: {

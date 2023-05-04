@@ -1,56 +1,6 @@
 <template>
 	<section class="data_section" ref="data_section">
-		<el-row :gutter="10" class="row_list">
-			<el-col :span="8">
-				<div class="row_left row_base">
-					<el-col :span="14">
-						<div class="pay saleBgcolor data_list rflex">
-							<div class="leftItem cflex wflex">
-								<p class="investor">{{ $t('index.yearLoss') }}</p>
-								<p class="number">68<span class="perTitle">({{ $t('index.tenMillion') }})</span></p>
-							</div>
-							<div class="rightItem">
-								<icon-svg icon-class="iconfukuan" />
-							</div>
-						</div>
-					</el-col>
-					<el-col :span="10">
-						<div class="pay taxBgcolor data_list rflex">
-							<div class="leftItem cflex wflex">
-								<p class="investor">{{ $t('index.yearProfit') }}</p>
-								<p class="number">120<span class="perTitle">(%)</span></p>
-							</div>
 
-						</div>
-					</el-col>
-				</div>
-			</el-col>
-			<el-col :span="16">
-				<div class="row_right row_base">
-					<el-col :span="3">
-						<div class="leftItem-text">
-							<div class="">
-								<h4>Market
-								</h4>
-							</div>
-							<div class="">
-								<h4>News</h4>
-							</div>
-						</div>
-					</el-col>
-					<el-col :span="21">
-						<div class="extenedBgcolor data_list rflex">
-							<div class="leftItem cflex wflex">
-								<div class="investor text">ProSiebenSat.1 Tumbles on Outlook, Dividend News</div>
-								<div class="text">French Economy Expands Slightly, as Expected </div>
-								<div class="text">ProSiebenSat.1 Tumbles on Outlook, Dividend News</div>
-							</div>
-						</div>
-					</el-col>
-
-				</div>
-			</el-col>
-		</el-row>
 		<el-row :gutter="10" class="row_list order_list">
 			<el-col :span="7">
 				<log-list></log-list>
@@ -59,28 +9,33 @@
 				<bar-chart type="barChart"></bar-chart>
 			</el-col>
 		</el-row>
+		<el-row :gutter="10" class="row_list order_list ">
+			<el-col :span="7">
+				<sales-table></sales-table>
+			</el-col>
+			<el-col :span="10" class="wrapper">
+				<card-list></card-list>
+
+			</el-col>
+			<el-col :span="7" class="roll">
+				<err-list></err-list>
+
+			</el-col>
+		</el-row>
 		<el-row :gutter="10" class="row_list order_list">
 			<el-col :span="7">
 				<pie-chart type="ordertype"></pie-chart>
 			</el-col>
 			<el-col :span="10">
-				<line-chart></line-chart>
+				<column-chart></column-chart>
 			</el-col>
 			<el-col :span="7">
-				<err-list></err-list>
-			</el-col>
-		</el-row>
-		<el-row :gutter="10" class="row_list">
-			<el-col :span="6">
-				<sales-table></sales-table>
-			</el-col>
-			<el-col :span="10">
 				<comment-list></comment-list>
 			</el-col>
-			<el-col :span="8">
-				<card-list></card-list>
-			</el-col>
 		</el-row>
+
+
+
 
 	</section>
 </template>
@@ -88,13 +43,13 @@
 <script>
 
 import salesTable from "./components/salesTable";  // 销售数据表格
-import commentList from "./components/commentList";  // 用户评论列表
+import commentList from "cps/echarts/commentList";  // 用户评论列表
 import cardList from "./components/cardList";  // card列表
 import logList from "./components/logList";  // 基本信息
 import errList from './components/errList' // 异常记录
 import barChart from 'cps/echarts/barChart' // K线
 import pieChart from 'cps/echarts/pieChart' // 投资类型 饼状图
-import lineChart from 'cps/echarts/lineChart' // 每日收益 柱状图
+import ColumnChart from 'cps/echarts/ColumnChart' // 每日收益 柱状图
 
 
 export default {
@@ -111,7 +66,7 @@ export default {
 		barChart,
 		pieChart,
 		errList,
-		lineChart
+		ColumnChart
 	},
 	created() {
 	},
@@ -130,17 +85,25 @@ export default {
 	.row_list {
 		margin-bottom: 20px;
 
+		.wrapper {}
+
 		.row_base {
 			padding: 10px;
 			box-sizing: border-box;
-			background: #fff;
+			background: #F5F5F5;
 			border-radius: 6px;
 			height: 120px;
 		}
 
+
+
 		.leftItem-text {
 			padding-top: 25px;
 
+		}
+
+		.roll {
+			padding: 0 !important
 		}
 	}
 
@@ -154,6 +117,7 @@ export default {
 			padding: 10px;
 			padding-top: 40px;
 			overflow: hidden;
+			border: 1px solid #e8e8e8;
 		}
 
 		.orderbarArea {

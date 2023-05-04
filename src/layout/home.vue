@@ -60,7 +60,7 @@ export default {
             position: relative;
             margin-top: 60px;
             width: 100%;
-            background: #f0f2f5;
+            background: #fff;
         }
 
     }

@@ -9,7 +9,7 @@ import echartsTheme from "cps/echarts/theme/westeros.json";
 export default {
 	data() {
 		return {
-			id: 'lineChart',
+			id: 'ColumnChart',
 			myChart: null,
 		}
 	},

@@ -2,9 +2,12 @@
     <header class="head-nav rflex " :style="{ 'width': headNavWidth + 'px' }" id='header_container'>
         <div class="right-nav" ref="rightNav">
             <top-menu></top-menu>
+
             <div class="userinfo-right rflex">
-                <div class="notify-row">
+                <div class="notify-row time">
+                    {{ nowTime }}
                 </div>
+
                 <div class="userinfo">
                     <el-menu class="el-menu-demo" mode="horizontal" active-text-color="#fff " text-color="#fff"
                         background-color="#23282f">
@@ -46,9 +49,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import * as mUtils from '@/utils/mUtils'
 import { setToken, getToken } from '@/utils/auth'
-import store from "@/store";
 import topMenu from "./topMenu";
 import logoImg from "@/assets/img/logo.png";
 import chinaImg from "@/assets/img/china.svg";
@@ -59,6 +60,8 @@ export default {
     name: 'head-nav',
     data() {
         return {
+            timer: "", //定义一个定时器
+            nowTime: "",
             logo: logoImg,
             langLogo: getToken('langLogo') || americaImg,
             chinaImg: chinaImg,
@@ -66,7 +69,7 @@ export default {
             userImg: userImg,
             menu: {
                 userBgcolor: '#f0f2f5'
-            }
+            },
         }
     },
     components: {
@@ -76,13 +79,16 @@ export default {
         ...mapGetters(['name', 'avatar', 'sidebar']),
         headNavWidth() {
             return document.body.clientWidth - this.sidebar.width
-        }
+        },
 
     },
     created() {
-
+        this.getTime()
     },
-    mounted() {
+    beforeDestroy() {
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
     },
     methods: {
         logout() {
@@ -117,8 +123,37 @@ export default {
                 this.langLogo = this.chinaImg;
             }
             setToken('langLogo', this.langLogo);
-        }
+        },
+        //顶部时间
+        getTime() {
+            this.timer = setInterval(() => {
+                let timeDate = new Date();
+                let year = timeDate.getFullYear();
+                let mounth = timeDate.getMonth() + 1;
+                let day = timeDate.getDate();
+                let hours = timeDate.getHours();
+                hours = hours >= 10 ? hours : "0" + hours;
+                let minutes = timeDate.getMinutes();
+                minutes = minutes >= 10 ? minutes : "0" + minutes;
+                let seconds = timeDate.getSeconds();
+                seconds = seconds >= 10 ? seconds : "0" + seconds;
+                let week = timeDate.getDay();
+                let weekArr = [
+                    "星期日",
+                    "星期一",
+                    "星期二",
+                    "星期三",
+                    "星期四",
+                    "星期五",
+                    "星期六",
+                ];
+                this.nowTime = `${year}/${mounth}/${day} ${hours}:${minutes}:${seconds} ${weekArr[week]}`
+            }, 1000);
+            console.log(this.nowTime)
+        },
+
     }
+
 }
 </script>
 
@@ -139,6 +174,7 @@ export default {
     z-index: 29;
     transition: width .2s;
     justify-content: space-between;
+
     height: 60px;
     box-sizing: border-box;
     background: #23282f;
@@ -156,9 +192,18 @@ export default {
 
 .userinfo-right {
     background: #23282f;
-    width: 320px;
+    width: 390px;
     padding: 0 10px;
     justify-content: space-between;
+}
+
+.time {
+    color: #fff;
+    padding-top: 2px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bolder;
 }
 
 .userinfo {
