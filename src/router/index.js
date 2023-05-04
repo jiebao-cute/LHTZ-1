@@ -67,68 +67,23 @@ export default new Router({
 
 export const asyncRouterMap = [
 	{
-		path: '/fundManage',
-		name: 'fundManage',
+		path: '/snapsShots',
+		name: 'snapsShots',
 		meta: {
-			title: '资金管理',
+			title: '快照',
 			icon: 'iconpay3',
 		},
 		component: Layout,
 		children: [
 			{
-				path: 'fundList',
-				name: 'fundList',
+				path: 'description',
+				name: 'description',
 				meta: {
-					title: '资金流水',
+					title: '描述',
 					routerType: 'leftmenu'
 				},
-				component: () => import('@/page/fundList/fundList'),
+				component: () => import('@/page/snapsShots/description'),
 			},
-			{
-				path: 'chinaTabsList',
-				name: 'chinaTabsList',
-				meta: {
-					title: '区域投资',
-					routerType: 'leftmenu'
-				},
-				component: () => import('@/page/fundList/chinaTabsList'),
-			}
-		]
-	},
-	{
-		path: '/fundData',
-		name: 'fundData',
-		meta: {
-			title: '资金数据',
-			icon: 'iconecharts',
-		},
-		component: Layout,
-		redirect: '/fundData/fundPosition',
-		children: [
-			{
-				path: 'fundPosition',
-				name: 'fundPosition',
-				meta: {
-					title: '投资分布'
-				},
-				component: () => import('@/page/fundData/fundPosition')
-			},
-			{
-				path: 'typePosition',
-				name: 'typePosition',
-				meta: {
-					title: '项目分布'
-				},
-				component: () => import('@/page/fundData/typePosition')
-			},
-			{
-				path: 'incomePayPosition',
-				name: 'incomePayPosition',
-				meta: {
-					title: '收支统计'
-				},
-				component: () => import('@/page/fundData/incomePayPosition')
-			}
 		]
 	},
 ]

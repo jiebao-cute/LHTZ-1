@@ -62,6 +62,7 @@ export default {
   },
   mounted() {
     this.tableActionFun();
+    this.componentTimerFun();
   },
   beforeDestroy() {
     clearInterval(this.componentTimer);

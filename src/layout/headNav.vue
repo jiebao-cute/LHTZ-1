@@ -33,10 +33,6 @@
                                 </div>
                                 <img :src="userImg" class='avatar' alt="">
                             </template>
-                            <el-menu-item index="2-1" @click="setDialogInfo('info')">{{ $t('commons.infoShow')
-                            }}</el-menu-item>
-                            <el-menu-item index="2-2" @click="setDialogInfo('pass')">{{ $t('commons.infoModify')
-                            }}</el-menu-item>
                             <el-menu-item index="2-3" @click="setDialogInfo('logout')">{{ $t('commons.quit')
                             }}</el-menu-item>
                         </el-submenu>
@@ -149,7 +145,6 @@ export default {
                 ];
                 this.nowTime = `${year}/${mounth}/${day} ${hours}:${minutes}:${seconds} ${weekArr[week]}`
             }, 1000);
-            console.log(this.nowTime)
         },
 
     }
